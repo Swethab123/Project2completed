@@ -1,0 +1,29 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+	<b>Blog Title:{{blogPost.blogTitle}}</b><br> 
+	<b>Posted On:{{blogPost.postedOn | date:'medium'}}</b><br>
+        <b>Posted By:{{blogPost.postedBy.firstname}}   &nbsp   {{blogPost.postedBy.lastname}}</b>
+        </div>
+        <div class="panel panel-body">
+       <p ng-bind-html="content"></p>
+        <div>
+       <a><span class="glyphicon glyphicon-thumbs-up"
+				ng-class="isLiked?'liked':'default'" ng-click="updateLikes(blogPost.id)"></span></a>
+        {{blogPost.likes}} likes
+        </div>
+
+        <div>
+        <textarea rows="2" cols="20" ng-model="commentTxt"></textarea>
+        <button type="button" class="btn btn-primary"
+				ng-click="addComment(blogPost.id,commentTxt)">Post Comment</button>
+				<br> You have given {{comments.length}} comments for this blog<br>
+			<ul style="list-style: none">
+				<li ng-repeat="comment in comments  | orderBy:'-commentedon'">
+					{{comment.commentTxt}} &nbsp; {{comment.commentedBy.firstname}}
+					&nbsp;{{comment.commentedon | date:'medium'}}
+					<hr>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

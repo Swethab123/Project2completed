@@ -1,0 +1,13 @@
+<div class="panel panel-info">
+	<div class="panel-heading"><h3>List of blogs approved</h3></div>
+	<div class="panel-body">
+		<ul>
+		<li ng-repeat="blog in blogsApproved">
+	     <a href="#/getblogapproved/{{blog.id}}"><b>Blog Title:</b>{{blog.blogTitle}}<br> </a>
+		<b>Posted On:</b>{{blogPost.postedOn | date:'medium'}}<br>
+        <b>Posted By:</b>{{blogPost.postedBy.firstname}}   &nbsp;   {{blogPost.postedBy.lastname}}<br>	
+	</li>
+</ul>
+</div>
+</div>
+	
